@@ -13,8 +13,17 @@ int main()
 
 	Gui gui( window );
 
-	Feder feder( 9.81f, 5, 2 );
-	feder.setZoom( 4 );
+	float deltaT = 0.001f;
+
+	
+	map<int, Feder> simulationen;
+	map<int, vector<float>> simulationsdaten;
+	//fallbeschleunigung, federkonstante, masse, schwingungsdauer, maximaleAuslenkung
+
+	Feder feder( sf::Vector2f(40,80), 9.81f, 3.f, 1.f );
+	feder.setZoom( 1 );
+	feder.hebAn(10);
+	simulationen.emplace(std::pair<int, Feder>(0,feder));
 
 	while( window.isOpen() )
 	{
@@ -28,15 +37,26 @@ int main()
 		if( Keyboard::isKeyPressed( Keyboard::Escape ) )
 			window.close();
 
-		feder.frame(0.001);
+		for(auto& el : simulationen )
+			el.second.frame( deltaT );
+
+		for( const auto& el : simulationen )
+			simulationsdaten[el.first] = el.second.getData();
+		for( const auto& el : simulationsdaten )
+		{
+			for( const auto& data : el.second )
+				cout << data << ":";
+			cout << "XXX" << endl;
+		}
 
 		window.clear( Color::Green );
 
 		//draw here
-		window.draw( feder );
+		for(const auto& el : simulationen )
+			window.draw( el.second );
 
 		window.display();
 	}
 
-	system( "pause" );
+	//system( "pause" );
 }
