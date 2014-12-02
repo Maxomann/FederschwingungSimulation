@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "Feder.h"
+#include "Federpendel.h"
 
 using namespace std;
 using namespace sf;
@@ -16,14 +16,14 @@ int main()
 	float deltaT = 0.001f;
 
 	
-	map<int, Feder> simulationen;
+	map<int, Federpendel> simulationen;
 	map<int, vector<float>> simulationsdaten;
 	//fallbeschleunigung, federkonstante, masse, schwingungsdauer, maximaleAuslenkung
 
-	Feder feder( sf::Vector2f(40,80), 9.81f, 3.f, 1.f );
+	Federpendel feder( sf::Vector2f(40,80), 9.81f, 3.f, 1.f );
 	feder.setZoom( 1 );
 	feder.hebAn(10);
-	simulationen.emplace(std::pair<int, Feder>(0,feder));
+	simulationen.emplace(std::pair<int, Federpendel>(0,feder));
 
 	while( window.isOpen() )
 	{

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-class Feder : public sf::Drawable
+class Federpendel : public sf::Drawable
 {
 	sf::Vector2f drawingOffset;
 	sf::CircleShape federOben;
@@ -29,7 +29,7 @@ class Feder : public sf::Drawable
 
 
 public:
-	Feder( sf::Vector2f drawingOffset,
+	Federpendel( sf::Vector2f drawingOffset,
 		   float fallbeschleunigung/*m/s^2*/,
 		   float masse/*kg*/,
 		   float federkonstante/*N/m*/ );

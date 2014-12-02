@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Feder.cpp">
+    <ClCompile Include="Federpendel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Feder.h">
+    <ClInclude Include="Federpendel.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
